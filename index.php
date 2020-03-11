@@ -1,2 +1,2 @@
 <?php
-echo "Hello LINE BOT \"KANT_59000001!!\"";
+echo "Hello LINE BOT \"ไอ้ตู่ หน้าหี\"";
