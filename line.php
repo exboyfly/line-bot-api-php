@@ -31,8 +31,10 @@ if ( sizeof($request_array['events']) > 0 )
 		}else if(($text== "ราคาทอง")||($text== "ทองคำวันนี้")||($text== "ขอราคาทองคำหน่อย")){
 			$buy ="";
 			$sell ="";
-			
-			$reply_message = 'ราคาทองวันนี้ ราคาซื้อ '+buy+' บาท ราคาขาย '+sell+' บาท';
+			$uri = "https://thai-gold-api.herokuapp.com/latest";
+			$response = \Httpful\Request::get($uri)->send();
+			$buy = $response->body->price->gold->buy;
+			$reply_message = 'ราคาทองวันนี้ ราคาซื้อ '+buy+' บาท';
 		}
    }
    else
