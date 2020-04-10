@@ -34,7 +34,7 @@ if ( sizeof($request_array['events']) > 0 )
 			$uri = "https://thai-gold-api.herokuapp.com/latest";
 			$response = \Httpful\Request::get($uri)->send();
 			$buy = $response->body->price->gold->buy;
-			$reply_message = 'ราคาทองวันนี้ ราคาซื้อ '+buy+' บาท';
+			$reply_message = 'ราคาทองวันนี้ ราคาซื้อ  บาท';
 		}
    }
    else
