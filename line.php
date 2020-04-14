@@ -31,9 +31,11 @@ if ( sizeof($request_array['events']) > 0 )
 		}else if(($text== "ราคาทอง")||($text== "ทองคำวันนี้")||($text== "ขอราคาทองคำหน่อย")){
 			$buy ="555";
 			$sell ="";
-			$uri = "https://thai-gold-api.herokuapp.com/latest";
-			$response = \Httpful\Request::get($uri)->send();
-			$buy = $response->price->gold->buy;
+			$url = "https://thai-gold-api.herokuapp.com/latest";
+			$json = file_get_contents($url);
+			$json = json_decode($json);
+			$buy = $json->price->gold->buy;
+			//$buy = $response->price->gold->buy;
 			$reply_message .= $buy."kuy";
 		}
    }
