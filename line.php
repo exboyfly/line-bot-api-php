@@ -29,13 +29,16 @@ if ( sizeof($request_array['events']) > 0 )
 		else if(($text== "ข้อมูลส่วนตัวของผู้พัฒนาระบบ")||($text== "ข้อมูลของคุณ")||($text== "ข้อมูลส่วนตัว")||($text== "หนักเท่าไหร่")){
 			$reply_message = 'ชื่อนายจิรวัฒน์ บริบรรณ อายุ 23 ปี น้ำหนัก 64kg. สูง 175cm. ขนาดรองเท้าเบอร์ 8.5 ใช้หน่วย US';
 		}else if(($text== "ราคาทอง")||($text== "ทองคำวันนี้")||($text== "ขอราคาทองคำหน่อย")){
-			
+			$reply_message = "ราคาทองคำวันที่ "
 			$response = file_get_contents('https://thai-gold-api.herokuapp.com/latest');
 			$response = json_decode($response);
 			
+			$date = $response->response->date;
+			$updateTime = $response->response->update_time;
 			$buy = $response->response->price->gold->buy;
-			//$buy = $response->price->gold->buy;
-			$reply_message .= $buy;
+			$sell = $response->response->price->gold->sell;
+			
+			$reply_message .= $date . " ราคาซื้อ ".$buy." บาท"." ราคาขาย ".$sell." บาท";
 		}
    }
    else
