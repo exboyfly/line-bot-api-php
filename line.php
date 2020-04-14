@@ -33,11 +33,11 @@ if ( sizeof($request_array['events']) > 0 )
 			$response = json_decode($response);
 			
 			$date = $response->response->date;
-			//$updateTime = $response->response->update_time;
+			$updateTime = $response->response->update_time;
 			$buy = $response->response->price->gold->buy;
 			//$sell = $response->response->price->gold->sell;
 			
-			$reply_message = "ราคาทองคำ" .$date;
+			$reply_message = "ราคาทองคำวันที่" .$date."เวลา " .$updateTime." ราคา ";
 		}
    }
    else
