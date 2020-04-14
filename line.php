@@ -35,9 +35,9 @@ if ( sizeof($request_array['events']) > 0 )
 			$date = $response->response->date;
 			$updateTime = $response->response->update_time;
 			$buy = $response->response->price->gold->buy;
-			//$sell = $response->response->price->gold->sell;
+			$sell = $response->response->price->gold->sell;
 			
-			$reply_message = "ราคาทองคำวันที่" .$date."เวลา " .$updateTime." ราคา ";
+			$reply_message = "ราคาทองคำวันที่" .$date."เวลา " .$updateTime." ราคา ".$buy." บาท"." ราคาขาย ".$sell." บาท";
 		}
    }
    else
