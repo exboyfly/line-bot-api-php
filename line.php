@@ -38,7 +38,7 @@ if ( sizeof($request_array['events']) > 0 )
 			$buy = $response->response->price->gold->buy;
 			$sell = $response->response->price->gold->sell;
 			
-			$reply_message .= $updateTime." ราคาซื้อ ".$buy." บาท"." ราคาขาย ".$sell." บาท";
+			$reply_message .= $updateTime;
 		}
    }
    else
