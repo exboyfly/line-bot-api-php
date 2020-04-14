@@ -33,12 +33,12 @@ if ( sizeof($request_array['events']) > 0 )
 			$response = file_get_contents('https://thai-gold-api.herokuapp.com/latest');
 			$response = json_decode($response);
 			
-			$date = $response->response->date;
+			//$date = $response->response->date;
 			$updateTime = $response->response->update_time;
 			$buy = $response->response->price->gold->buy;
 			$sell = $response->response->price->gold->sell;
 			
-			$reply_message .= $date . " ราคาซื้อ ".$buy." บาท"." ราคาขาย ".$sell." บาท";
+			$reply_message .= $updateTime." ราคาซื้อ ".$buy." บาท"." ราคาขาย ".$sell." บาท";
 		}
    }
    else
