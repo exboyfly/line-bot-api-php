@@ -34,7 +34,7 @@ if ( sizeof($request_array['events']) > 0 )
 			$uri = "https://thai-gold-api.herokuapp.com/latest";
 			$response = \Httpful\Request::get($uri)->send();
 			$buy = $response->price->gold->buy;
-			$reply_message = ''+$buy;
+			$reply_message .= $buy;
 		}
    }
    else
